@@ -47,7 +47,21 @@
       "minUI5Version": "1.134.1",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app" :{},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "componentUsages": {
+      "requestComponent": {
+        "name": "project1.component.request",
+        "settings": {},
+        "componentData": {},
+        "lazy": true
       }
     },
     "contentDensities": {
@@ -104,18 +118,12 @@
           ]
         },
         {
-          "name": "CreateOrder",
-          "pattern": "CreateOrder/{num}",
-          "target": [
-              "CreateOrder"
-          ]
-        },
-        {
-          "name" : "OrderDetail",
-          "pattern": "OrderDetail/{num}",
-          "target": [
-            "OrderDetail"
-          ]
+          "name": "request",
+          "pattern": "request",
+          "target": {
+            "name": "request",
+            "prefix": "re"
+          }
         }
       ],
       "targets": {
@@ -125,9 +133,14 @@
           "clearControlAggregation": false,
           "viewId": "home",
           "viewName": "home"
-        }
+        }, 
+        "request": {
+          "type": "Component",
+          "usage": "requestComponent",
+          "title": "Request"
       }
-    },
+    }
+  },
     "rootView": {
       "viewName": "project1.view.app",
       "type": "XML",

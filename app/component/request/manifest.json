@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "project1",
+    "id": "project1.request",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -58,7 +58,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "project1.i18n.i18n"
+          "bundleName": "project1.component.request.i18n.i18n"
         }
       },
       "": {
@@ -93,14 +93,14 @@
         "viewType": "XML",
         "path": "project1.view",
         "async": true,
-        "viewPath": "project1.view"
+        "viewPath": "project1.component.request.view"
       },
       "routes": [
         {
-          "name": "Request",
+          "name": "Request_home",
           "pattern": "",
           "target": [
-            "Request"
+            "Request_home"
           ]
         },
         {
@@ -119,12 +119,12 @@
         }
       ],
       "targets": {
-        "Request": {
+        "Request_home": {
           "viewType": "XML",
           "transition":"slide",
           "clearControlAggregation": false,
-          "viewId": "Request",
-          "viewName": "Request"
+          "viewId": "Request_home",
+          "viewName": "Request_home"
         },
         "CreateOrder": {
           "viewType": "XML",
@@ -141,7 +141,7 @@
       }
     },
     "rootView": {
-      "viewName": "project1.view.app",
+      "viewName": "project1.component.request.view.app",
       "type": "XML",
       "id": "appView",
       "async": true

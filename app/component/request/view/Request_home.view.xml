@@ -1,0 +1,13 @@
+<mvc:View controllerName="project1.component.request.controller.Request_home"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m">
+    <ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+        <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+            <content class="panelbottomline">
+                <HBox width="100%" height="3rem">
+                    <Title text="물품 요청 관리" />
+                </HBox>
+            </content>
+        </Panel>
+    </ScrollContainer>
+</mvc:View>

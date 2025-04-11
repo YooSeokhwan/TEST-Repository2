@@ -4,6 +4,6 @@ sap.ui.define([
 ], (Controller, MessageToast) => {
     "use strict";
 
-    return Controller.extend("project1.controller.app", {
+    return Controller.extend("project1.component.request.controller.app", {
     });
 });

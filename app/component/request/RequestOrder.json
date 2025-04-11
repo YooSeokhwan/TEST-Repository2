@@ -1,0 +1,29 @@
+{
+        "RequestOrder": [
+            {
+                "ReqNum": "1000000001",
+                "ReqGood": "펜",
+                "ReqQty": "20",
+                "Requester": "김진우",
+                "ReqDate": "2022-03-16",
+                "ReqStatus": "A"
+            },
+            {
+                "ReqNum": "1000000002",
+                "ReqGood": "커피",
+                "ReqQty": "100",
+                "Requester": "이하영",
+                "ReqDate": "2022-08-18",
+                "ReqStatus": "B"
+            },
+            {
+                "ReqNum": "1000000003",
+                "ReqGood": "멀티탭",
+                "ReqQty": "3",
+                "Requester": "박민준",
+                "ReqDate": "2022-10-10",
+                "ReqStatus": "C"
+            }
+        ]
+    }
+    

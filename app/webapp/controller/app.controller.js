@@ -7,6 +7,7 @@ sap.ui.define([
         
         onRequest: function() {
             this.getOwnerComponent().getRouter().navTo("request");
+            console.log("onRequest called")
         },
         
         onHome: function() {

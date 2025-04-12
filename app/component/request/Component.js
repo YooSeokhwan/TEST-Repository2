@@ -7,7 +7,7 @@ sap.ui.define([
 ], (UIComponent, JSONModel, ResourceModel, Device, models) => {
     "use strict";
 
-    return UIComponent.extend("project1.Component", {
+    return UIComponent.extend("project1.component.request.Component", {
         metadata: {
             manifest: "json",
             interfaces: [
@@ -44,6 +44,8 @@ sap.ui.define([
                 bundleName: "project1.i18n.i18n"
             });
             this.setModel(i18nModel, "i18n");
+
+            console.log("request component loaded");
         }
     });
 });

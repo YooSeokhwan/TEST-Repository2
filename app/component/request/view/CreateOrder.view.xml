@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="project1.controller.CreateOrder"
+    controllerName="project1.component.request.controller.CreateOrder"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:f="sap.f"

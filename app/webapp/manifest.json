@@ -49,11 +49,10 @@
         "sap.m": {},
         "sap.ui.core": {},
         "sap.f": {},
-        "sap.suite.ui.generic.template": {},
+        "sap.suite.ui.generic.template" :{},
         "sap.ui.comp": {},
-        "sap.ui.generic.app" :{},
-        "sap.ui.table": {},
-        "sap.ushell": {}
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {}
       }
     },
     "componentUsages": {
@@ -133,14 +132,14 @@
           "clearControlAggregation": false,
           "viewId": "home",
           "viewName": "home"
-        }, 
+        },
         "request": {
           "type": "Component",
           "usage": "requestComponent",
           "title": "Request"
+        }
       }
-    }
-  },
+    },
     "rootView": {
       "viewName": "project1.view.app",
       "type": "XML",

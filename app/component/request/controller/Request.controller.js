@@ -11,7 +11,7 @@ sap.ui.define([
 
     let totalNumber;
 
-    return Controller.extend("project1.controller.Request", {
+    return Controller.extend("project1.component.request.controller.Request", {
         formatter: formatter,
 
         onInit: function () {
@@ -69,7 +69,7 @@ sap.ui.define([
             if (!this.byId("SortDialog")) {
                 Fragment.load({
                     id: this.getView().getId(),
-                    name: "project1.view.fragment.sortDialog",
+                    name: "project1.component.request.view.fragment.sortDialog",
                     controller: this
                 }).then(function (oDialog) {
                     this.getView().addDependent(oDialog);
@@ -132,7 +132,7 @@ sap.ui.define([
             if (!this.nameDialog) {
                 this.nameDialog = sap.ui.core.Fragment.load({
                     id: oView.getId(),
-                    name: "project1.view.fragment.ShowRejectDialog",
+                    name: "project1.component.request.view.fragment.ShowRejectDialog",
                     controller: this
                 }).then(function (oDialog) {
                     oView.addDependent(oDialog);
@@ -187,6 +187,11 @@ sap.ui.define([
             } else {
                 console.log("Delete success:", key);
             }
+        },
+        
+        onRequesthome: function () {
+            this.getOwnerComponent().getRouter().navTo("Request_home");
         }
+            
     });
 });

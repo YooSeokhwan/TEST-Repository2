@@ -1,4 +1,4 @@
-<mvc:View controllerName="project1.controller.OrderDetail"
+<mvc:View controllerName="project1.component.request.controller.OrderDetail"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:f="sap.f"

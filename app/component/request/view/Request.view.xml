@@ -1,5 +1,5 @@
 <mvc:View 
-            controllerName="project1.controller.Request"
+            controllerName="project1.component.request.controller.Request"
             xmlns="sap.m"
             xmlns:f="sap.f"
             xmlns:t="sap.ui.table"
@@ -13,6 +13,10 @@
         <f:title>
             <f:DynamicPageTitle>
                 <f:heading>
+                    <Button
+                        icon="sap-icon://nav-back"
+                        press="onRequesthome"
+                        type="Transparent" />
                     <HBox>
                         <Title text= "물품 요청 목록" />
                     </HBox>

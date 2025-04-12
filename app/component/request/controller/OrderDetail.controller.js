@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (Controller, JSONModel, formatter) {
     "use strict";
 
-    return Controller.extend("project1.controller.OrderDetail", {
+    return Controller.extend("project1.component.request.controller.OrderDetail", {
         formatter: formatter,
 
         onInit: function () {

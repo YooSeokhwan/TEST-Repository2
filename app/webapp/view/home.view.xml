@@ -1,6 +1,6 @@
 <mvc:View
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="spa.m"
+    xmlns="sap.m"
     displayBlock="true">
     <MessagePage
         text="환영합니다."

@@ -85,7 +85,7 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "sap.f.routing.Router",
         "controlAggregation": "pages",
         "controlId": "app",
         "transition": "slide",
@@ -101,26 +101,31 @@
           "pattern": "",
           "target": [
             "Request_home"
-          ]
+          ],
+          "layout": "OneColumn"
         },
         {
           "name": "Request",
           "pattern": "Request",
-          "target": ["Request"]
+          "target": ["Request"],
+          "layout": "OneColumn"
         },
         {
           "name": "CreateOrder",
           "pattern": "CreateOrder/{num}",
           "target": [
               "CreateOrder"
-          ]
+          ],
+          "layout": "OneColumn"
         },
         {
           "name" : "OrderDetail",
           "pattern": "OrderDetail/{num}",
           "target": [
+            "Request",
             "OrderDetail"
-          ]
+          ],
+          "layout": "TwoColumnsMidExpanded"
         }
       ],
       "targets": {
@@ -129,25 +134,29 @@
           "transition":"slide",
           "clearControlAggregation": false,
           "viewId": "Request_home",
-          "viewName": "Request_home"
+          "viewName": "Request_home",
+          "controlAggregation": "beginColumnPages"
         },
         "CreateOrder": {
           "viewType": "XML",
           "transition": "slide",
           "viewId": "CreateOrder",
-          "viewName": "CreateOrder"
+          "viewName": "CreateOrder",
+          "controlAggregation": "beginColumnPages"
         },
         "OrderDetail": {
           "viewType": "XML",
           "transition": "slide",
           "viewId": "OrderDetail",
-          "viewName": "OrderDetail"
+          "viewName": "OrderDetail",
+          "controlAggregation": "midColumnPages"
         },
         "Request": {
           "viewType": "XML",
           "transition": "slide",
           "viewId": "Request",
-          "viewName": "Request"
+          "viewName": "Request",
+          "controlAggregation": "beginColumnPages"
         }
       }
     },

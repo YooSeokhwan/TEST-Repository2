@@ -1,7 +1,10 @@
 <mvc:View
     controllerName="project1.component.request.controller.app"
     xmlns="sap.m"
+    xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc">
-            <App class="myAppDemoWT" id="app">
+            <App class="myAppDemoWT">
+            <f:FlexibleColumnLayout autoFocus="false" restoreFocusOnBackNavigation="true"
+                    backgroundDesign="Translucent" id="app" />
             </App>
 </mvc:View>

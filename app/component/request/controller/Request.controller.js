@@ -5,11 +5,14 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "sap/ui/core/Fragment",
     "sap/ui/model/Sorter",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, formatter, Filter, FilterOperator, Fragment, Sorter, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/export/Spreadsheet",
+    "sap/ui/export/library"
+], function (Controller, formatter, Filter, FilterOperator, Fragment, Sorter, JSONModel, Spreadsheet, exportLibrary) {
     "use strict";
 
     let totalNumber;
+    const EdmType = exportLibrary.EdmType;
 
     return Controller.extend("project1.component.request.controller.Request", {
         formatter: formatter,
@@ -191,7 +194,90 @@ sap.ui.define([
         
         onRequesthome: function () {
             this.getOwnerComponent().getRouter().navTo("Request_home");
-        }
-            
+        },
+
+        onDataExport: function () {
+            let aCols, oRowBinding, oSettings, oSheet, oTable;
+        
+            oTable = this.byId("RequestTable");
+            oRowBinding = oTable.getBinding("rows");
+            aCols = this.createColumnConfig();
+        
+            let oList = [];
+            for (let j = 0; j < oRowBinding.oList.length; j++) {
+                if (oRowBinding.aIndices.indexOf(j) > -1) {
+                    oList.push(oRowBinding.oList[j]);
+                }
+            }
+        
+            for (let i = 0; i < oList.length; i++) {
+                if (oList[i].request_state === "A") {
+                    oList[i].request_state = "승인";
+                }
+                if (oList[i].request_state === "B") {
+                    oList[i].request_state = "처리 대기";
+                }
+                if (oList[i].request_state === "C") {
+                    oList[i].request_state = "반려";
+                }
+            }
+        
+            oSettings = {
+                workbook: {
+                    columns: aCols,
+                    hierarchyLevel: "Level"
+                },
+                dataSource: oList,
+                fileName: "RequestTable.xlsx",
+                worker: false
+            };
+        
+            oSheet = new Spreadsheet(oSettings);
+            oSheet.build().finally(function () {
+                oSheet.destroy();
+            });
+        },
+
+        createColumnConfig: function () {
+            const aCols = [];
+        
+            aCols.push({
+                label: '요청 번호',
+                property: 'request_number',
+                type: EdmType.Int32
+            });
+        
+            aCols.push({
+                label: '요청 물품',
+                property: 'request_product',
+                type: EdmType.String
+            });
+        
+            aCols.push({
+                label: '물품 개수',
+                property: 'request_quantity',
+                type: EdmType.Int32
+            });
+        
+            aCols.push({
+                label: '요청자',
+                property: 'requestor',
+                type: EdmType.String
+            });
+        
+            aCols.push({
+                label: '요청 일자',
+                property: 'request_date',
+                type: EdmType.String
+            });
+        
+            aCols.push({
+                label: '처리 상태',
+                property: 'request_state',
+                type: EdmType.String
+            });
+        
+            return aCols;
+        }            
     });
 });

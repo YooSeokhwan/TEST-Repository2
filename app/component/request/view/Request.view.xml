@@ -105,6 +105,11 @@
                                 tooltip="정렬"
                                 press="onSort"
                                 type="Transparent"/>
+                            <Button 
+                                icon="sap-icon://excel-attachment"
+                                tooltip="Excel Download"
+                                press=".onDataExport"
+                                type="Transparent" />
                         </OverflowToolbar>
                     </t:extension>
                 <t:columns>

@@ -14,6 +14,15 @@
       "id": "@sap/generator-fiori:basic",
       "version": "1.17.1",
       "toolsId": "16768458-cbf5-4e5e-8573-4db30e757abe"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/srv-api/request/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
     }
   },
   "sap.ui": {
@@ -38,7 +47,21 @@
       "minUI5Version": "1.134.1",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app" :{},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "componentUsages": {
+      "requestComponent": {
+        "name": "project1.component.request",
+        "settings": {},
+        "componentData": {},
+        "lazy": true
       }
     },
     "contentDensities": {
@@ -55,7 +78,12 @@
       "": {
       "dataSource": "mainService",
       "preload": true,
-      "settings": {}
+      "settings": {
+        "operationMode": "Server",
+        "groupId": "$auto",
+        "synchronizationMode": "None",
+        "autoExpandSelect": true
+      }
       },
       "Request": {
       "type": "sap.ui.model.json.JSONModel",
@@ -83,36 +111,36 @@
       },
       "routes": [
         {
-          "name": "Request",
+          "name": "home",
           "pattern": "",
           "target": [
-            "Request"
+            "home"
           ]
         },
         {
-          "name": "CreateOrder",
-          "pattern": "CreateOrder",
-          "target": [
-              "CreateOrder"
-          ]
+          "name": "request",
+          "pattern": "request",
+          "target": {
+            "name": "request",
+            "prefix": "re"
+          }
         }
       ],
       "targets": {
-        "Request": {
+        "home": {
           "viewType": "XML",
           "transition":"slide",
           "clearControlAggregation": false,
-          "viewId": "Request",
-          "viewName": "Request"
-        },
-        "CreateOrder": {
-          "viewType": "XML",
-          "transition": "slide",
-          "viewId": "CreateOrder",
-          "viewName": "CreateOrder"
-        }
+          "viewId": "home",
+          "viewName": "home"
+        }, 
+        "request": {
+          "type": "Component",
+          "usage": "requestComponent",
+          "title": "Request"
       }
-    },
+    }
+  },
     "rootView": {
       "viewName": "project1.view.app",
       "type": "XML",

@@ -78,8 +78,9 @@
         <f:content class="sapUiSmallMargin">
             <t:Table 
                     id="RequestTable"                    
-                    rows="{Request>/RequestOrder}"
-                    selectionMode="MultiToggle"
+                    rows="{RequestModel>/}"
+                    selectionMode="None"
+                    rowActionCount="1"
                     width="auto">
 
                     <t:extension>
@@ -90,6 +91,11 @@
                                 text="물품 요청 생성"
                                 press="onCreateOrder"
                                 type="Transparent" />
+                            <Button 
+                                icon="sap-icon://delete"
+                                tooltip="삭제"
+                                press="onDeleteOrder"
+                                type="Transparent" />
                             <Button
                                 icon="sap-icon://sort"
                                 tooltip="정렬"
@@ -98,50 +104,71 @@
                         </OverflowToolbar>
                     </t:extension>
                 <t:columns>
+                    <t:Column hAlign="Center" width="5rem">
+                        <Label text="" />
+                        <t:template>
+                            <CheckBox 
+                                visible="{= ${RequestModel>request_state} === 'B' ? true : false }"
+                                selected="{RequestModel>CHK}" 
+                                textAlign="Center" />
+                        </t:template>
+                    </t:Column>
                     <t:Column hAlign="Center">
                         <Label text="요청 번호" />
                         <t:template>
-                            <Text text="{Request>ReqNum}" />
+                            <Text text="{RequestModel>request_number}" />
                         </t:template>
                     </t:Column>
                     <t:Column hAlign="Center">
                         <Label text="요청 물품" />
                         <t:template>
-                            <Text text="{Request>ReqGood}" />
+                            <Text text="{RequestModel>request_product}" />
                         </t:template>
                     </t:Column>
                     <t:Column hAlign="Center">
                         <Label text="물품 개수" />
                         <t:template>
-                            <Text text="{Request>ReqQty}" />
+                            <Text text="{RequestModel>request_quantity}" />
                         </t:template>
                     </t:Column>
                     <t:Column hAlign="Center">
                         <Label text="요청자" />
                         <t:template>
-                            <Text text="{Request>Requester}" />
+                            <Text text="{RequestModel>requestor}" />
                         </t:template>
                     </t:Column>
                     <t:Column hAlign="Center">
                         <Label text="요청 일자" />
                         <t:template>
-                            <Text text="{Request>ReqDate}" />
+                            <Text text="{RequestModel>request_date}" />
                         </t:template>
                     </t:Column>
                     <t:Column hAlign="Center">
                         <Label text="처리 상태" />
                         <t:template>
                             <ObjectStatus text= "{
-                                path: 'Request>ReqStatus',
+                                path: 'RequestModel>request_state',
                                 formatter: '.formatter.statusText'
                                 }"
-                                state = "{= ${Request>ReqStatus} === 'A' ? 'Success' :
-                                            ${Request>ReqStatus} === 'C' ? 'Error' :
+                                state = "{= ${RequestModel>request_state} === 'A' ? 'Success' :
+                                            ${RequestModel>request_state} === 'C' ? 'Error' :
                                             'None'
-                                }" />
+                                }"
+                                active= "{= ${RequestModel>request_state} === 'C' ? true :
+                                            false
+                                }" press="onShowRejectReason" />
                         </t:template>
                     </t:Column>
                 </t:columns>
+                    <t:rowActionTemplate>
+                        <t:RowAction>
+                            <t:items>
+                                <t:RowActionItem
+                                type="Navigation"
+                                press="onNavToDetail" />
+                            </t:items>
+                        </t:RowAction>
+                    </t:rowActionTemplate>
             </t:Table>
         </f:content>
     </f:DynamicPage>

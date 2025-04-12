@@ -83,7 +83,7 @@
         <f:footer>
             <OverflowToolbar>
                 <ToolbarSpacer />
-                <Button type="Emphasized" text="생성"/>
+                <Button type="Emphasized" text="생성" press="onCreate"/>
                 <Button type="Default" text="취소" press="onBack"/>
             </OverflowToolbar>
         </f:footer>

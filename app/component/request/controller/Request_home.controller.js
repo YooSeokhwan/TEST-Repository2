@@ -29,6 +29,12 @@ sap.ui.define([
         onRequest_list: function () {
             const oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("Request");
+        },
+
+        onRequest_chart: function() {
+            const oChart = this.getOwnerComponent().getRouter();
+            oChart.navTo("Request_chart")
+            
         }
     });
 });

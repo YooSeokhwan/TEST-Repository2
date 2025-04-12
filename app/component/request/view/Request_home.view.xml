@@ -18,7 +18,8 @@
             </GenericTile>
 
             <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-                header="물품 요청 현황">
+                header="물품 요청 현황"
+                press=".onRequest_chart">
                 <TileContent>
                     <ImageContent src="sap-icon://bar-chart" />
                 </TileContent>

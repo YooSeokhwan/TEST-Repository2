@@ -64,7 +64,7 @@ sap.ui.define([
             if (!this.nameDialog) {
                 this.nameDialog = sap.ui.core.Fragment.load({
                     id: oView.getId(),
-                    name: "project1.view.fragment.OrderRejectDialog",
+                    name: "project1.component.request.view.fragment.OrderRejectDialog",
                     controller: this
                 }).then(function (oDialog) {
                     oView.addDependent(oDialog);

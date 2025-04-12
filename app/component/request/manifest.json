@@ -126,6 +126,14 @@
             "OrderDetail"
           ],
           "layout": "TwoColumnsMidExpanded"
+        },
+        {
+          "name": "Request_chart",
+          "pattern": "Request_chart",
+          "target" : [
+            "Request_chart"
+          ],
+          "layout": "OneColumn"
         }
       ],
       "targets": {
@@ -156,6 +164,14 @@
           "transition": "slide",
           "viewId": "Request",
           "viewName": "Request",
+          "controlAggregation": "beginColumnPages"
+        },
+        "Request_chart": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Request_chart",
+          "viewName": "Request_chart",
           "controlAggregation": "beginColumnPages"
         }
       }
